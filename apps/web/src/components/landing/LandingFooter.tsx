@@ -18,7 +18,11 @@ export default function LandingFooter({ content, isArabic }: LandingFooterProps)
           {/* Brand & System Overview */}
           <div className="flex flex-col items-start">
             <div className="flex items-center gap-3 mb-4">
-              <NeutralShield size={34} className="w-8 h-8 text-teal-400" />
+              <img
+                src="/logo.png"
+                alt="Nagda 122 Logo"
+                className="w-8 h-8 rounded-lg object-contain shadow-sm ring-1 ring-slate-700/50"
+              />
               <span className="text-white font-bold text-base font-heading">
                 {content.header.systemTitle}
               </span>

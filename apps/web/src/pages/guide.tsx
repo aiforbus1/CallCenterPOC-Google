@@ -175,7 +175,11 @@ export default function GuidePage() {
               className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-teal-400 rounded-lg p-1"
               aria-label={data.title}
             >
-              <NeutralShield size={38} className="w-9 h-9 sm:w-10 sm:h-10 text-teal-400 shrink-0" />
+              <img
+                src="/logo.png"
+                alt="Nagda 122 Logo"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl object-contain shrink-0 shadow-md ring-1 ring-slate-700/50"
+              />
               <div className="flex flex-col">
                 <span className="text-white font-bold text-sm sm:text-base leading-tight font-heading group-hover:text-teal-200 transition-colors">
                   {isArabic ? "دليل تشغيل منظومة الطوارئ" : "Emergency Operations Guide"}
