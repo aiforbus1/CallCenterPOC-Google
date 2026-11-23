@@ -1,0 +1,105 @@
+# ==============================================================================
+# Git Ignore Configuration - AI Call Center POC
+# ==============================================================================
+
+# Environment & Secrets (NEVER commit secrets or local credentials)
+.env
+.env.*
+!.env.example
+!.env.production.example
+services/api/.env
+apps/web/.env.local
+apps/web/.env.*.local
+*.pem
+*.key
+*.cert
+*.p12
+*.ppk
+*.openssh
+Keys/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Node.js / Next.js
+apps/web/node_modules/
+apps/web/.next/
+apps/web/out/
+apps/web/build/
+apps/web/.pnp
+apps/web/.pnp.js
+apps/web/npm-debug.log*
+apps/web/yarn-debug.log*
+apps/web/yarn-error.log*
+apps/web/.turbo/
+apps/web/tsconfig.tsbuildinfo
+node_modules/
+npm-debug.log*
+
+# Flutter / Dart
+apps/mobile/.dart_tool/
+apps/mobile/.flutter-plugins
+apps/mobile/.flutter-plugins-dependencies
+apps/mobile/.packages
+apps/mobile/.pub-cache/
+apps/mobile/.pub/
+apps/mobile/build/
+apps/mobile/android/.gradle/
+apps/mobile/android/local.properties
+apps/mobile/ios/Flutter/Generated.xcconfig
+apps/mobile/ios/Flutter/app.framework
+apps/mobile/ios/Flutter/Flutter.framework
+apps/mobile/ios/Flutter/Flutter.podspec
+apps/mobile/ios/Pods/
+apps/mobile/ios/.symlinks/
+apps/mobile/ios/Flutter/ephemeral/
+
+# IDE & OS Files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build Artifacts, Distribution Archives & Large Binaries
+dist/
+build/
+*.apk
+*.idsig
+*.aab
+*.ipa
+*.tar.gz
+*.zip
+*.7z
+*.rar
+docs/*.tar.gz
+docs/*.zip
+docs/package_base64.txt
+promo-video/out/
+
+# Generated Media / Scratch / Test Outputs
+output_test.*
+*.mp3
+*.wav
+*.m4a
+*.ogg
+services/api/scratch/
+scratch/

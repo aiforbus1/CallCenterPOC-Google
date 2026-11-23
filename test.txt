@@ -1,0 +1,26 @@
+, key_pass: str, ks_pass: str):
+    try:
+        signed_apk_name = p_apk.name.replace("-zipaligned.apk", "-signed.apk")
+        psigned_apk = p_apk.parent.joinpath(signed_apk_name)
+
+        key_cmd = ['--ks', key_path, '--ks-key-alias', key_alias, '--ks-pass', 'pass:{}'.format(ks_pass), '--key-pass', 'pass:{}'.format(key_pass)]
+        cmd = [config.apksigner, 'sign'] + key_cmd + ['--out', str(psigned_apk.resolve()), str(p_apk.resolve())]
+        r = check_output(cmd)
+    except Exception as e:
+        print("apk signing error: " + str(e))
+        return False
+
+    return psigned_apk 
+
+def zipalign(p_apk):
+    try:
+        zipaligned_apk_name = p_apk.name.replace("-unsigned.apk", "")
+        if zipaligned_apk_name.endswith(".apk"):
+            zipaligned_apk_name = zipaligned_apk_name[:-4]
+        
+        zipaligned_apk_name = zipaligned_apk_name + "-zipaligned.apk"
+        p_zipaligned_apk = p_apk.parent.joinpath(zipaligned_apk_name)
+        if p_zipaligned_apk.exists():
+            p_zipaligned_apk.unlink()
+
+        cmd = [config.zipalign, '-v', '-p', '4', str(p_apk.resolve()), st

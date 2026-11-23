@@ -1,0 +1,21 @@
+[Unit]
+Description=AI Call Center FastAPI Backend Service
+After=network.target postgresql.service redis-server.service
+Wants=postgresql.service redis-server.service
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/callcenter/services/api
+EnvironmentFile=/var/www/callcenter/.env
+ExecStart=/var/www/callcenter/services/api/venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 4
+Restart=always
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutStopSec=30
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

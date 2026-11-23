@@ -1,0 +1,44 @@
+# ------------------------------------------------------------------------------
+# 122 Nagda Web Portal - Namecheap Apache / LiteSpeed Configuration
+# Place this in public_html/122Nagda/.htaccess
+# ------------------------------------------------------------------------------
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /122Nagda/
+
+    # 1. Do NOT intercept API requests (pass directly through to Python Passenger)
+    RewriteCond %{REQUEST_URI} ^/122Nagda/api [NC,OR]
+    RewriteCond %{REQUEST_URI} ^/api [NC]
+    RewriteRule ^ - [L]
+
+    # 2. Serve existing files and directories directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # 3. Trailing slash routing for Next.js exported pages
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{DOCUMENT_ROOT}/122Nagda/$1/index.html -f
+    RewriteRule ^(.*)/?$ $1/index.html [L]
+
+    # 4. Fallback for SPA routing
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# Security: Deny access to sensitive files
+<FilesMatch "^\.env|\.ini|\.py$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Cache static assets
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/ico "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+</IfModule>

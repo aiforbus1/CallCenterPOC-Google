@@ -1,0 +1,26 @@
+# ------------------------------------------------------------------------------
+# Namecheap / cPanel / CloudLinux Phusion Passenger Configuration
+# ------------------------------------------------------------------------------
+# Note: cPanel's "Setup Python App" tool will automatically insert its
+# PassengerAppRoot and PassengerPython paths at the top of this file.
+# ------------------------------------------------------------------------------
+
+PassengerAppType wsgi
+PassengerStartupFile passenger_wsgi.py
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ passenger_wsgi.py/$1 [QSA,L]
+</IfModule>
+
+# Security: Deny access to sensitive environment files
+<Files ".env*">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.ini">
+    Order allow,deny
+    Deny from all
+</Files>

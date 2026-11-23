@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "sceneId": 1,
+      "name": "problem",
+      "targetSeconds": 12,
+      "measuredSeconds": 11.44,
+      "diffSeconds": -0.5600000000000005,
+      "diffPercent": -4.666666666666671,
+      "budgetExceeded": false,
+      "outputPath": "C:\\Projects\\CallCenterPOC-Google\\promo-video\\public\\audio\\vo\\scene1.mp3"
+    },
+    {
+      "sceneId": 2,
+      "name": "solutionIntro",
+      "targetSeconds": 10,
+      "measuredSeconds": 14.88,
+      "diffSeconds": 4.880000000000001,
+      "diffPercent": 48.80000000000001,
+      "budgetExceeded": true,
+      "outputPath": "C:\\Projects\\CallCenterPOC-Google\\promo-video\\public\\audio\\vo\\scene2.mp3"
+    },
+    {
+      "sceneId": 3,
+      "name": "liveDemo",
+      "targetSeconds": 33,
+      "measuredSeconds": 30.48,
+      "diffSeconds": -2.5199999999999996,
+      "diffPercent": -7.636363636363636,
+      "budgetExceeded": false,
+      "outputPath": "C:\\Projects\\CallCenterPOC-Google\\promo-video\\public\\audio\\vo\\scene3.mp3"
+    },
+    {
+      "sceneId": 4,
+      "name": "questionTree",
+      "targetSeconds": 17,
+      "measuredSeconds": 19.84,
+      "diffSeconds": 2.84,
+      "diffPercent": 16.705882352941178,
+      "budgetExceeded": true,
+      "outputPath": "C:\\Projects\\CallCenterPOC-Google\\promo-video\\public\\audio\\vo\\scene4.mp3"
+    },
+    {
+      "sceneId": 5,
+      "name": "trustAndSafety",
+      "targetSeconds": 18,
+      "measuredSeconds": 20,
+      "diffSeconds": 2,
+      "diffPercent": 11.11111111111111,
+      "budgetExceeded": true,
+      "outputPath": "C:\\Projects\\CallCenterPOC-Google\\promo-video\\public\\audio\\vo\\scene5.mp3"
+    },
+    {
+      "sceneId": 6,
+      "name": "closing",
+      "targetSeconds": 10,
+      "measuredSeconds": 9,
+      "diffSeconds": -1,
+      "diffPercent": -10,
+      "budgetExceeded": false,
+      "outputPath": "C:\\Projects\\CallCenterPOC-Google\\promo-video\\public\\audio\\vo\\scene6.mp3"
+    }
+  ],
+  "totalActual": 105.64,
+  "timestamp": "2026-11-23T08:29:22.163Z"
+}
